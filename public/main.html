@@ -188,13 +188,21 @@
         "
       >
         <div id="export-box">
-          <button id="export" type="button" onclick="alert('export')">
+          <button id="export-attendees" type="button" onclick="CreateReport()">
             export
           </button>
         </div>
       </div>
 
       <div id="Group chat" class="tabcontent" style="border: none">
+      <div id="chat_buttons">
+          <button id="export-attendees" type="button" onclick="CreateReport() "  style = "float = left">
+            export
+          </button>
+          <button id="export-attendees" type="button" onclick="CreateReport()" style = "float = left" >
+            clear
+          </button>
+        </div>
         <!--start of chat box-->
         <div
           id="chatbox"

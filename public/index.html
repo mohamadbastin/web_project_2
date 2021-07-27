@@ -4,7 +4,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Join the session</title>
+    <title>login page</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script
       src="js/libs/jquery-1.4.2.min.js"
       type="application/javascript"
@@ -23,6 +24,7 @@
     <!-- <script src="attendees_chat.js" type="application/javascript"></script> -->
     <script src="socket.js" type="application/javascriptd"></script>
     <!-- <script src="chat.js" type="application/javascript"></script> -->
+    <link rel = "stylesheet" type = "text/css" href = "styleofproject.css">
     <script
       src="js/libs/jquery-1.4.2.min.js"
       type="application/javascript"
@@ -35,12 +37,21 @@
 
     <script type="text/javascript"></script>
   </head>
+  <body style="background-image: url('bg3.png') ; background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">
+  <div class="loginbox">
+  <div class = "avatar"><i class="material-icons" style="font-size:80px ;color:#373c41">person_outline</i></div>
+  <br>
+  <br>
+  <br>
+  <br>
 
+  <h6>Please Enter your name</h6>
   <form>
     <input type="text" id="enter_username" />
   </form>
   <button type="submit" id="submit_username">Enter</button>
-
+  </div>
+  </body>
   <script type="module">
     import { socket } from "./socket.js";
 

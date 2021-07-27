@@ -43,7 +43,8 @@ $(document).ready(function () {
     $(".button-user").show();
     $(".chng-mic").show();
   }
-  // groupChat.init();
+  opentab(event, 'Group chat');  // groupChat.init();
+  // document.getElementById("export-attendees").addEventListener("click", CreateReport());
 });
 
 function opentab(evt, tabname) {
@@ -108,6 +109,33 @@ function pushAttendee(username, role) {
     '<div class="dropdown" style="float : right; "> <button class="button-user"> <i class="fa fa-ellipsis-v" style="float : right;"></i> </button> <div class="dropdown-content" class="dropdoen-left" style="right: 4px;left: auto;width:50px;background-color:white;" ><button class="dropdown-userbt chng-host">change to host</button><button class="dropdown-userbt chng-pres" >change to presenter</button> <button class="dropdown-userbt chng-mic" id="chng-mic" onclick="allow_mic(this)" value="#000" >Disable/Enalble mic</button> </div></div>'
   );
 }
+
+
+function CreateReport(ReportName = ''){
+  var downloadLink;
+  var dataType = 'application/vnd.ms-excel';
+  ReportName = ReportName?ReportName+'.xls':''+'Attendeeslist.xls';//modify excle sheet name here 
+  downloadLink = document.createElement("a");
+  document.body.appendChild(downloadLink);
+  if(navigator.msSaveOrOpenBlob){
+      var blob = new Blob(['\ufeff'], {
+          type: dataType
+      });
+      navigator.msSaveOrOpenBlob( blob, ReportName);
+  }else{
+      downloadLink.href = 'data:' + dataType + ', ' ;
+      downloadLink.href += `<table><tbody>
+      <tr><th>Name</th><th>Role</th></tr>`;
+      for (i=0; i<arrayVariable.length; i++){
+        downloadLink.href += '<tr><td>' + arrayVariable[i] + '</td>';
+        downloadLink.href += '<td>' + arrayVariablerole[i] + '</td></tr>';
+      }
+      downloadLink.href += `</tbody><table>`;
+      downloadLink.download = ReportName;
+      downloadLink.click();
+  }
+}
+
 
 function allow_mic() {
   alert("disable or enable mic");

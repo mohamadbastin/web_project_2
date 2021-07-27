@@ -4,7 +4,7 @@ var arrayLength = 0;
 var sockett;
 
 $(document).ready(function () {
-  WhiteboardUi.init($("#canvas"));
+  
   (arrayVariable = []), (arrayLength = arrayVariable.length);
   arrayVariablerole = [];
   for (i = 0; i < arrayLength; i++) {
@@ -46,6 +46,10 @@ $(document).ready(function () {
   opentab(event, 'Group chat');  // groupChat.init();
   // document.getElementById("export-attendees").addEventListener("click", CreateReport());
 });
+
+function lets_voicev(){
+
+}
 
 function opentab(evt, tabname) {
   var i, tabcontent, tablinks;

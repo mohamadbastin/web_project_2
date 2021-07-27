@@ -80,10 +80,13 @@
     coordinates: [0, 0],
     events: [],
     animationind: 0,
-
+    socket: null,
     drawColor: "#000000",
 
     init: function (canvasid) {
+      // console.log(sock)
+      // window.Whiteboard.socket = sock;
+      // console.log("asdfgasdf")
       // set the canvas width and height
       // the offsetWidth and Height is default width and height
       this.canvas = document.getElementById(canvasid);
@@ -104,6 +107,11 @@
       this.setStrokeStyle(col);
     },
 
+    setSock: function (sock) {
+      this.socket = sock;
+      console.log("fffff", this.socket);
+    },
+
     /* zahra start*/
     change_range: function (range) {
       this.context.lineWidth = range;
@@ -116,7 +124,9 @@
 
     execute: function (wbevent, firstexecute) {
       //console.log("execute running")
-      console.log("executing");
+      // console.log("executing");
+      // console.log(window.Whiteboard.socket);
+      // window.Whiteboard.socket.emit("whiteboard")
       var type = wbevent.type;
       var wid;
       var hei;
@@ -126,6 +136,18 @@
         wbevent.time = new Date().getTime();
         this.events.push(wbevent);
         //x = wbevent.coordinates[0];
+
+        if (this.events.length > 1){
+          // console.log(this.events);
+          // if (this.events !== this.temp){
+              this.socket.emit("whiteboard", this.events);
+              console.log("sss")
+              // console.log("thisthis e", Whiteboard.socket);it("whiteboard", this.events);
+              // console.log("im here");
+              // this.temp = this.events;
+          // }
+          
+      }
       }
 
       if (type === "beginpath") {
@@ -427,6 +449,21 @@
         Whiteboard.execute(e);
       }
     },
+
+
+    
+    draw_whiteboard: function(event_list) {
+      // console.log("im in draw");
+      for (i=0; i<event_list.length; i++){
+          // console.log("im in draw for");
+          Whiteboard.execute(event_list[i], false);
+      }
+  },
+
+  lets_vvoice(){
+    window.Whiteboard.socket.emit("lets voice", "");
+},
+
 
     redraw: function () {
       //this.init();

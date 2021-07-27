@@ -195,23 +195,31 @@
       </div>
 
       <div id="Group chat" class="tabcontent" style="border: none">
-      <div id="chat_buttons">
-          <button id="export-attendees" type="button" onclick="CreateReport() "  style = "float = left">
+        <div id="chat_buttons">
+          <button
+            id="export-attendees"
+            type="button"
+            onclick="CreateReport() "
+            style="float : left"
+          >
             export
           </button>
-          <button id="export-attendees" type="button" onclick="CreateReport()" style = "float = left" >
+          <button
+            id="export-attendees"
+            type="button"
+            onclick="CreateReport()"
+            style="float : left"
+          >
             clear
           </button>
         </div>
         <!--start of chat box-->
         <div
           id="chatbox"
-          style="
-            word-wrap: break-word;
+          style="word-wrap: break-word;
             width: 100%;
             overflow: scroll;
-            overflow-x: hidden;
-          "
+            overflow-x: hidden;"
         ></div>
         <div id="input">
           <form
@@ -250,7 +258,7 @@
           class="activate_mic"
           id="activate_mic"
           value="#000"
-          onclick="lets_voice"
+          onclick="lets_voice()"
         >
           <i class="fa fa-microphone" title="microphone"></i>
         </button>
@@ -264,6 +272,12 @@
     </div>
   </body>
 </html>
+<script>
+
+  function lets_voice(){
+    window.Whiteboard.lets_vvoice();
+  }
+</script>
 
 <script type="module">
   // var socket = io();
@@ -282,12 +296,14 @@
   var peer_media_elements = {};
 
   function attachMediaStream(element, stream) {
-      console.log("DEPRECATED, attachMediaStream will soon be removed.");
-      element.srcObject = stream;
-    };
+    console.log("DEPRECATED, attachMediaStream will soon be removed.");
+    element.srcObject = stream;
+  }
 
   $(document).ready(function () {
     //     // WhiteboardUi.init($("#canvas"));
+    WhiteboardUi.init($("#canvas"));
+    window.Whiteboard.setSock(socket);
     //     // attendees.init();
     // console.log(socket)
     user_id = localStorage.getItem("user_id");
@@ -338,14 +354,14 @@
 
   socket.on("whiteboard", function (msg) {
     // console.log("im working in client listener");
-    // Whiteboard.draw_whiteboard(msg);
+    window.Whiteboard.draw_whiteboard(msg);
   });
 
-  function lets_voice() {
-    socket.emit("lets voice", {});
-  }
+  // function lets_voice() {
+  //   socket.emit("lets voice", {});
+  // }
 
-  lets_voice();
+  // lets_voice();
 
   socket.on("lets voice", function () {
     console.log("Connected to signaling server voice");
@@ -534,8 +550,6 @@
       navigator.webkitGetUserMedia ||
       navigator.mozGetUserMedia ||
       navigator.msGetUserMedia;
-
-    
 
     navigator.getUserMedia(
       { audio: USE_AUDIO, video: USE_VIDEO },

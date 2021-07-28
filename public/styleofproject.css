@@ -1,9 +1,9 @@
 body {
-    background-color: gray;
+    background-color: rgb(168, 166, 166);
 }
 
 header {
-    background-color: white;
+    background-color: #c6d5c9;
     height: 50px;
     width: auto;
 }
@@ -37,7 +37,7 @@ header {
 }
 
 .leftslidebar {
-    background-color: white;
+    background-color: #c6d5c9;
     height: 200px;
     width: 50px;
     border-top-right-radius: 80px;
@@ -52,7 +52,7 @@ header {
 }
 
 #new-page {
-    background-color: wheat;
+    background-color: #59645b;
     border-radius: 80px;
 }
 
@@ -89,6 +89,10 @@ button :hover {
 
 button :active {
     background-color: #ccc;
+}
+
+.btn{
+    background-color: #c6d5c9;
 }
 
 
@@ -350,4 +354,18 @@ h6{
     text-align: center;
     font-size: 20px;
     /* font-family:; */
+}
+
+.accept {
+    border : solid 2px green;
+}
+
+.reject{
+    border: solid 2px red ;
+}
+
+.scorevalue{
+    background-color: #c6d5c9;
+    color: #59645b;
+    border-radius: 5%;
 }

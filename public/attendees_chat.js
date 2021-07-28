@@ -91,6 +91,7 @@ function add_new_user(user_name, role) {
 
 /* newly added function below */
 function pushAttendee(username, role) {
+
   var div = document.createElement("div");
   var i = arrayLength - 1;
   div.id = i;
@@ -109,9 +110,28 @@ function pushAttendee(username, role) {
     height: "30px",
     padding: "6px 3px ",
   });
-  $("#" + i).prepend(
-    '<div class="dropdown" style="float : right; "> <button class="button-user"> <i class="fa fa-ellipsis-v" style="float : right;"></i> </button> <div class="dropdown-content" class="dropdoen-left" style="right: 4px;left: auto;width:50px;background-color:white;" ><button class="dropdown-userbt chng-host">change to host</button><button class="dropdown-userbt chng-pres" >change to presenter</button> <button class="dropdown-userbt chng-mic" id="chng-mic" onclick="allow_mic(this)" value="#000" >Disable/Enalble mic</button> </div></div>'
+  console.log("checking the menu");
+  $("#" + i).prepend('<div class="dropdown" style="float : right; "> <button class="button-user"> <i class="fa fa-ellipsis-v" style="float : right;"></i> </button> <div class="dropdown-content" class="dropdoen-left" style="right: 4px;left: auto;width:50px;background-color:white;" ><button class="dropdown-userbt chng-host">change to host</button><button class="dropdown-userbt chng-pres" >change to presenter</button> <button class="dropdown-userbt chng-mic" id="chng-mic" onclick="allow_mic(this)" value="#000" >Disable/Enalble mic</button> </div></div>'
   );
+  console.log("checking the menu");
+
+  if (role == "host") {
+    $(".presenter").show();
+    $(".activate_mic").show();
+    $(".leftslidebar").show();
+    $(".button-user").show();
+    $(".chng-host").show();
+    $(".chng-pres").show();
+    $(".chng-mic").show();
+  }
+  if (role == "presenter") {
+    $(".presenter").show();
+    $(".activate_mic").show();
+    $(".leftslidebar").show();
+    $(".button-user").show();
+    $(".chng-mic").show();
+  }
+
 }
 
 

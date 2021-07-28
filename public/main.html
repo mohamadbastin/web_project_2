@@ -46,13 +46,13 @@
     <header>
       <div class="presenter">
         <div class="buttons">
-          <button id="button_pencil" type="button" id="drawpolyline">
+          <button id="button_pencil" class = "btn" type="button" id="drawpolyline">
             <i class="fa fa-pencil" title="pencil"></i>
           </button>
-          <button id="button_eraser" type="button">
+          <button id="button_eraser" class = "btn" type="button">
             <i class="fa fa-eraser" title="eraser"></i>
           </button>
-          <button id="button_text" type="button">
+          <button id="button_text" class = "btn" type="button">
             <i class="fa fa-text-height" title="text"></i>
           </button>
 
@@ -61,7 +61,7 @@
           <!---->
 
           <div class="dropdown">
-            <button id="button_shape">
+            <button id="button_shape" class = "btn">
               <i class="material-icons" title="colors" style="font-size: 20px"
                 >color_lens</i
               >
@@ -125,7 +125,7 @@
           </div>
 
           <div class="dropdown">
-            <button>
+            <button class = "btn">
               <i
                 class="material-icons"
                 title="text size"
@@ -143,16 +143,14 @@
               />
             </div>
           </div>
-
-          <button><i class="fa fa-minus" title="line"></i></button>
-          <button id="button_rectangle" type="button">
+          <button id="button_rectangle" class = "btn" type="button">
             <i class="fa fa-square-o" title="square"></i>
           </button>
-          <button id="button_oval" type="button">
+          <button class = "btn" id="button_oval" type="button">
             <i class="fa fa-circle-o" title="circle"></i>
           </button>
 
-          <button>
+          <button class = "btn">
             <input
               class="custom-file-input"
               type="file"
@@ -188,7 +186,7 @@
         "
       >
         <div id="export-box">
-          <button id="export-attendees" type="button" onclick="CreateReport()">
+          <button id="export-attendees" type="button"  class = "btn" style = "font-size : 15px ; border:solid 1px"onclick="CreateReport()">
             export
           </button>
         </div>
@@ -196,23 +194,10 @@
 
       <div id="Group chat" class="tabcontent" style="border: none">
         <div id="chat_buttons">
-          <button
-            id="export-attendees"
-            type="button"
-            onclick="CreateReport() "
-            style="float : left"
-          >
-            export
-          </button>
-          <button
-            id="export-attendees"
-            type="button"
-            onclick="CreateReport()"
-            style="float : left"
-          >
-            clear
-          </button>
+          <button id="chat_export" class = "btn" style = "font-size : 15px ; border:solid 1px">export</button>
+          <button id="chat_clear" class = "btn" style = "font-size : 15px ; border:solid 1px" onclick = "removeAllChildNodes()">clear</button>
         </div>
+        
         <!--start of chat box-->
         <div
           id="chatbox"
@@ -220,7 +205,9 @@
             width: 100%;
             overflow: scroll;
             overflow-x: hidden;"
-        ></div>
+        >
+        
+        </div>
         <div id="input">
           <form
             onSubmit="groupChat.send();return false"
@@ -250,22 +237,22 @@
       <!--end of chat box-->
     </div>
     <div id="canvas-container" class="centerslidebar">
-      <canvas id="canvas" style="background: wheat"></canvas>
+      <canvas id="canvas" style="background: white"></canvas>
     </div>
     <div class="leftslidebar">
       <div class="leftbuttons">
         <button
-          class="activate_mic"
+          class="activate_mic btn"
           id="activate_mic"
           value="#000"
           onclick="lets_voice()"
         >
           <i class="fa fa-microphone" title="microphone"></i>
         </button>
-        <button class="presenter">
+        <button class="presenter btn">
           <i class="fa fa-video-camera" title="webcam"></i>
         </button>
-        <button class="presenter">
+        <button class="presenter btn">
           <i class="fa fa-laptop" title="share screen"></i>
         </button>
       </div>
